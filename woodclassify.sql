@@ -1,0 +1,18 @@
+--alter table wood_parcel_codes add column mapclass varchar;
+--update wood_parcel_codes set mapclass='Agricultural' where code < 200;
+--update wood_parcel_codes set mapclass='' where code >= 200;
+--update wood_parcel_codes set mapclass='Single-Family Residential' where code between 500 and 519;
+--update wood_parcel_codes set mapclass='Multi-Family Residential' where code >= 520 and code < 600 or code in(401,402,403,415);
+--update wood_parcel_codes set mapclass='Park, Open Space, or Golf Course' where code in (462,463,660);
+--update wood_parcel_codes set mapclass='Cemetery, Charity, or Church' where code in (680,685,690);
+--update wood_parcel_codes set mapclass='Government' where code >=600 and code < 644;
+--update wood_parcel_codes set mapclass='School' where code =670;
+--update wood_parcel_codes set mapclass='Railroad' where code >= 840 and code < 871;
+--update wood_parcel_codes set mapclass='Commercial' where (code in (400,410,411,412,481,485)) or (code >= 415 and code < 462) or (code >=464 and code <479) or (code >=490 and code <500);
+--update wood_parcel_codes set mapclass='Public Utility' where code =489;
+--update wood_parcel_codes set mapclass='Industrial' where code >=300 and code < 400 or code in (480,482);
+--UPDATE wood_parcels set mclassific=670 where deededowne= 'state of ohio-bowling green state university' or deededowne='state of ohio bowling green state university
+--update wood_parcel_codes set mapclass='Unclassified/Tax Exempt' where mapclass='Industrial';
+--update wood_parcel_codes set mapclass='Vacant' where code in (100,300,400,500,821);
+--update wood_parcel_codes set mapclass='Parking' where code in (456,457);
+select * from wood_parcel_codes order by code;
