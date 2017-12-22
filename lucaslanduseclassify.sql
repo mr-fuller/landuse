@@ -1,3 +1,11 @@
+--classify lucas county data from 2012
+
+--calculate the square footage of each land use type in(this assumes you loaded data in EPSG 3734, which might not fly for MI data)
+select desc2, sum(ST_Area(geom)) as sqft
+from lucasparcels2012
+group by desc2;
+
+--Classify data from 2017
 --select * from lucasparcels limit 10;
 --show data_directory;
 --select * from areis_class_lookup;
@@ -12,5 +20,12 @@ update table areis_class_lookup set mapclass='Cemetery, Charity, or Church' wher
 update table areis_class_lookup set mapclass='Government' where class_landuse between 600 and 640;
 update table areis_class_lookup set mapclass='Education' where class_landuse in (670,650) ;
 update table areis_class_lookup set mapclass='Transportation, Communication, and Utility' where class_landuse between 840 and 870 or class_landuse between 210 and 260;
-update table areis_class_lookup set mapclass='Vacant' where class_landuse between 500 and 505 or class_landuse in (100,300,400);
-update table areis_class_lookup set mapclass='Parking Lots' where class_landuse=456;
+--update table areis_class_lookup set mapclass='Vacant' where class_landuse between 500 and 505 or class_landuse in (100,300,400);
+--update table areis_class_lookup set mapclass='Parking Lots' where class_landuse=456;
+
+--calculate the square footage of each land use type for Lucas county 2017 data (some
+select mapclass, sum(ST_Area(geom)) as square_feet
+from lucasparcels2017
+group by mapclass;
+
+--join 2012 and 2017 data into one table
