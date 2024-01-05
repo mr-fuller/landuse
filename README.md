@@ -13,4 +13,5 @@ SQL related to some land use maps for the TMACOG region made in postgres and qgi
 ## For Wood County:
 
 - The Wood County parcel layer and land use codes were requested using the contact form on the Wood County Auditor Website. Join on <i>mclassific</i> field in the parcel layer and <i>code</i> field in the land use code table.
+- <b>TO DO:</b> Figure out where I got said land use code table.
 
